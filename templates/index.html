@@ -1,0 +1,77 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+<title>Example Code</title>
+<h1>ROV Example</h1>
+This example shows how to render a form, call the API, and stream back
+video.
+<hr>
+<h2>Video Stream</h2>
+TBD
+<hr>
+<h2>Controller</h2>
+<table>
+  <tr>
+    <td />
+    <td><button value="up"> Up </button></td>
+    <td />
+  </tr>
+  <tr>
+    <td><button value="left"> Left </button></td>
+    <td />
+    <td><button value="right"> Right </button></td>
+  </tr>
+  <tr>
+    <td />
+    <td><button value="down"> Down </button></td>
+    <td />
+  </tr>
+</table>
+<hr>
+<h2>Log</h2>
+<textarea id="log" rows=12 cols=80 readonly></textarea>
+
+<script language="javascript">
+// helper function to log information to the text area so you dont need
+// to have the javascript developer tools open all the time
+    
+function log(line) {
+    // add a line to the "log" text area
+    old_log = $('#log').val();
+    new_log = old_log + line + '\n';
+    $('#log').val(new_log);
+    console.log(line); // also log to the javascript console
+}
+
+// function that does something in response to the data coming back from
+// the API when a button is clicked and sends info the API
+function api_return_processor(results) {
+    log('return processor got:');
+    log('   message = ' + results.message);
+    log('   success = ' + results.success);
+    log('   x change = ' + results.x_position);
+    log('   y change = ' + results.y_position);
+}
+
+// main function for any button, when clicked it calls this inline function
+// you can find out which button was clicked by inspecting the value of the button element
+$("button").click(function() {
+    var direction = $(this).val();
+    log('button press event for: ' + direction);
+
+    // call our API and show the return info
+    $.ajax({type: "POST",
+	    url: '/direction',
+	    contentType: 'application/json',
+	    data: JSON.stringify({go: direction}),
+	    success: function(results) {
+		log('called /direction API successfully!');
+		api_return_processor(results);
+	    },
+	    dataType: 'json'});
+	   
+});
+
+</script>
