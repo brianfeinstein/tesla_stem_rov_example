@@ -42,8 +42,6 @@ http://127.0.0.1:5000/
 
 # Code to get this running on Raspberry Pi
 ```
-# first may need to delete the venv directory if this is a new install
-rm -r venv
 # switch to using python3
 python3 -m venv venv
 # before running flask you need to switch to activate python3
