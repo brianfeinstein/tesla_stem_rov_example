@@ -15,11 +15,11 @@ https://api.jquery.com -> for the web side
 
 
 ###
-python3 -m venv venv 
-. venv/bin/activate
-pip install flask
-FLASK_ENV=development flask run
-http://127.0.0.1:5000/
+> python3 -m venv venv 
+> . venv/bin/activate
+> pip install flask
+> FLASK_ENV=development flask run
+> http://127.0.0.1:5000/
 
 
 ### video capture
