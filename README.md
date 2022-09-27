@@ -4,6 +4,7 @@
 * Homebrew 3.6.3
 
 ## Target environment: Raspbian on Raspberry Pi
+## Install the older version Buster
 https://www.raspberrypi.org/software/operating-systems/
 
 ## Link to programming in Python
@@ -16,10 +17,6 @@ https://realpython.com/api-integration-in-python/
 ## The web site will use JQuery to make API calls to the Flask server
 https://api.jquery.com
 
-## video capture
-* https://www.linux-projects.org/uv4l/tutorials/
-* https://www.linux-projects.org/uv4l/installation/
-* https://www.linux-projects.org/uv4l/tutorials/streaming-server/
 
 # Running
 
@@ -35,30 +32,33 @@ pip install flask
 
 # Code to get this running on a Mac
 ```
+# switch to using puthong 3
 python3 -m venv venv 
 . venv/bin/activate
+# if flask hasnt been installed for python3 then run pip install flask
 flask --debug run
 http://127.0.0.1:5000/
 ```
 
 # Code to get this running on Raspberry Pi
 ```
-/home/pi/.local/bin/flask --debug run --host=0.0.0.0
+# first may need to delete the venv directory if this is a new install
+rm -r venv
+# switch to using python3
+python3 -m venv venv
+# before running flask you need to switch to activate python3
+. venv/bin/activate
+# if flask hasnt been installed for python3 then run pip install flask
+pip install flask
+# then may need to log out/log back in and re-run the environment activate
+lask --debug run --host=0.0.0.0
 ```
 
 # Webcam install
-1. Follow instructions in red for Bullseye (assuming this is the raspian installed) - https://www.linux-projects.org/uv4l/installation/
-2. Then follow portion under "If you are running Raspbian Stretch, Buster or Bullseye (also known as Raspberry PI OS) instead, type the following commands"
 ```
-$ curl https://www.linux-projects.org/listing/uv4l_repo/lpkey.asc | sudo apt-key add -
-$ echo "deb https://www.linux-projects.org/listing/uv4l_repo/raspbian/stretch stretch main" | sudo tee /etc/apt/sources.list.d/uv4l.list
-$ sudo apt-get update
-$ sudo apt-get install uv4l uv4l-raspicam
-```
-3. Then run:
-```
-sudo apt-get install uv4l-raspicam-extras
-sudo apt-get install uv4l-server uv4l-uvc uv4l-xscreen uv4l-mjpegstream uv4l-dummy uv4l-raspidisp
-```
+lsusb
+https://raspberrypi-guide.github.io/electronics/using-usb-webcams
+https://raspberrypi-guide.github.io/programming/install-opencv.html
+
 
 
