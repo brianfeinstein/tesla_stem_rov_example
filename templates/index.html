@@ -75,6 +75,6 @@ $("button").click(function() {
 });
 
 // set the video stream up to this host
-$("img.video").attr('src', location.hostname + ":8080/?action=stream");
+$("img#video").attr('src', 'http://' + location.hostname + ":8080/?action=stream");
   
 </script>
