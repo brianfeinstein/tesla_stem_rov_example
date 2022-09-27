@@ -9,7 +9,7 @@ This example shows how to render a form, call the API, and stream back
 video.
 <hr>
 <h2>Video Stream</h2>
-TBD
+<img src="" id="video">
 <hr>
 <h2>Controller</h2>
 <table>
@@ -74,4 +74,7 @@ $("button").click(function() {
 	   
 });
 
+// set the video stream up to this host
+$("img.video").attr('src', location.hostname + ":8080/?action=stream");
+  
 </script>
