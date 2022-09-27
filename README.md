@@ -17,6 +17,9 @@ https://realpython.com/api-integration-in-python/
 ## The web site will use JQuery to make API calls to the Flask server
 https://api.jquery.com
 
+## using git
+https://docs.github.com/en/get-started/using-git/about-git
+
 
 # Running
 
