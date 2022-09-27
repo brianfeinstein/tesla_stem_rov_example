@@ -55,10 +55,23 @@ lask --debug run --host=0.0.0.0
 ```
 
 # Webcam install
+* https://raspberrypi-guide.github.io/electronics/using-usb-webcams
+* https://github.com/jacksonliam/mjpg-streamer/blob/master/mjpg-streamer-experimental/plugins/output_http/README.md
+* sudo apt-get install fswebcam
+
+
 ```
+# check to see if it shows up
 lsusb
-https://raspberrypi-guide.github.io/electronics/using-usb-webcams
-https://raspberrypi-guide.github.io/programming/install-opencv.html
+dmesg | grep video
+v4l2-ctl --list-formats
+
+# test image creation with fswebcam
+fswebcam -r 1280x720 -S 30 --no-banner /tmp/image1.jpg
+
+# set up streaming with mjpg_streamer, viewable at http://127.0.0.1:8080/?action=stream
+mjpg_streamer -i "input_uvc.so -d /dev/video0" -o "output_http.so"
+```
 
 
 
