@@ -47,11 +47,18 @@ http://127.0.0.1:5000/
 ```
 
 # Webcam install
-* Follow instructions in red for Bullseye (assuming this is the raspian installed) - https://www.linux-projects.org/uv4l/installation/
-* Then follow portion under "If you are running Raspbian Stretch, Buster or Bullseye (also known as Raspberry PI OS) instead, type the following commands"
-* Then
-**   sudo apt-get install uv4l-raspicam-extras
-**   sudo apt-get install uv4l-server uv4l-uvc uv4l-xscreen uv4l-mjpegstream uv4l-dummy uv4l-raspidisp
-
+1. Follow instructions in red for Bullseye (assuming this is the raspian installed) - https://www.linux-projects.org/uv4l/installation/
+2. Then follow portion under "If you are running Raspbian Stretch, Buster or Bullseye (also known as Raspberry PI OS) instead, type the following commands"
+```
+$ curl https://www.linux-projects.org/listing/uv4l_repo/lpkey.asc | sudo apt-key add -
+$ echo "deb https://www.linux-projects.org/listing/uv4l_repo/raspbian/stretch stretch main" | sudo tee /etc/apt/sources.list.d/uv4l.list
+$ sudo apt-get update
+$ sudo apt-get install uv4l uv4l-raspicam
+```
+3. Then run:
+```
+sudo apt-get install uv4l-raspicam-extras
+sudo apt-get install uv4l-server uv4l-uvc uv4l-xscreen uv4l-mjpegstream uv4l-dummy uv4l-raspidisp
+```
 
 
