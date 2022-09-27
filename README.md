@@ -46,6 +46,12 @@ http://127.0.0.1:5000/
 /home/pi/.local/bin/flask --debug run --host=0.0.0.0
 ```
 
+# Webcam install
+* Follow instructions in red for Bullseye (assuming this is the raspian installed) - https://www.linux-projects.org/uv4l/installation/
+* Then follow portion under "If you are running Raspbian Stretch, Buster or Bullseye (also known as Raspberry PI OS) instead, type the following commands"
+* Then
+**   sudo apt-get install uv4l-raspicam-extras
+**   sudo apt-get install uv4l-server uv4l-uvc uv4l-xscreen uv4l-mjpegstream uv4l-dummy uv4l-raspidisp
 
 
 
