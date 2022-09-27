@@ -49,7 +49,7 @@ python3 -m venv venv
 # if flask hasnt been installed for python3 then run pip install flask
 pip install flask
 # then may need to log out/log back in and re-run the environment activate
-lask --debug run --host=0.0.0.0
+flask --debug run --host=0.0.0.0
 ```
 
 # Webcam install
